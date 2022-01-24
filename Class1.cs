@@ -11,25 +11,35 @@ namespace Mindbox_ClassLibrary
 
     interface IFigure
     {
-        public float Square();
-        public float Perimeter();
+        public float GetSquare();
+        public float GetPerimeter();
     }
 
     public class Triangle: IFigure
     {
-        public float SideA;
-        public float SideB;
-        public float SideC;
+        private float _sideA;
+        private float _sideB;
+        private float _sideC;
 
-        public float Square(float sideA, float sideB, float sideC)
+        public Triangle (float sideA, float sideB, float sideC)
         {
-            return 5f;
+            _sideA = MathF.Abs(sideA);
+            _sideB = MathF.Abs(sideB);
+            _sideC = MathF.Abs(sideC);
         }
 
-        public float Perimeter(float sideA, float  sideB, float sideC)
+        public float GetPerimeter()
         {
-            return (sideA + sideB + sideC);
+            return (_sideA + _sideB + _sideC);
         }
+
+        public float GetSquare()
+        {
+            float p = GetPerimeter() / 2;
+
+            return (MathF.Sqrt(p*(p - _sideA)* (p - _sideB)* (p - _sideC)));
+        }
+
 
 
     }
