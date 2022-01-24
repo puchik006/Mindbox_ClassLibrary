@@ -15,11 +15,19 @@ namespace Mindbox_ClassLibrary
             _sideC = MathF.Abs(sideC);
         }
 
+        /// <summary>
+        /// Calculate perimeter of a triangle
+        /// </summary>
+        /// <returns>float perimeter</returns>
         public float GetPerimeter()
         {
             return (_sideA + _sideB + _sideC);
         }
 
+        /// <summary>
+        /// Calculate square of a triangle
+        /// </summary>
+        /// <returns>float perimeter</returns>
         public float GetSquare()
         {
             float p = GetPerimeter() / 2;
@@ -27,7 +35,11 @@ namespace Mindbox_ClassLibrary
             return (MathF.Sqrt(p * (p - _sideA) * (p - _sideB) * (p - _sideC)));
         }
 
-        public bool IsRectangle()
+        /// <summary>
+        /// Check if triangle is orthogonal
+        /// </summary>
+        /// <returns>bool true - if orthogonal, false - if not</returns>
+        public bool IsOrthogonal()
         {
             float minSide;
             float midleSide;

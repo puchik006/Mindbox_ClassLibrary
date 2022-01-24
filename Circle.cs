@@ -11,11 +11,19 @@ namespace Mindbox_ClassLibrary
             _radius = MathF.Abs(radius);
         }
 
+        /// <summary>
+        /// Calculate perimeter of a circle
+        /// </summary>
+        /// <returns>float perimeter</returns>
         public float GetPerimeter()
         {
             return 2 * MathF.PI * _radius;
         }
 
+        /// <summary>
+        /// Calculate square of a circle
+        /// </summary>
+        /// <returns>float square</returns>
         public float GetSquare()
         {
             return MathF.PI * _radius * _radius;
