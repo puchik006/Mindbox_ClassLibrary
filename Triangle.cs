@@ -8,6 +8,12 @@ namespace Mindbox_ClassLibrary
         private float _sideB;
         private float _sideC;
 
+        /// <summary>
+        /// Provides method to calculate perimeter and square of triangle(A,B,C) by 3 sides
+        /// </summary>
+        /// <param name="sideA">Side A</param>
+        /// <param name="sideB">Side B</param>
+        /// <param name="sideC">Side C</param>
         public Triangle(float sideA, float sideB, float sideC)
         {
             _sideA = MathF.Abs(sideA);

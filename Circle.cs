@@ -6,6 +6,10 @@ namespace Mindbox_ClassLibrary
     {
         private float _radius;
 
+        /// <summary>
+        /// Provides method to calculate perimeter and square of circle by radius
+        /// </summary>
+        /// <param name="radius"></param>
         public Circle (float radius)
         {
             _radius = MathF.Abs(radius);
