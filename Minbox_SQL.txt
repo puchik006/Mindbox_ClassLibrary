@@ -1,0 +1,38 @@
+В базе данных MS SQL Server есть продукты и категории. Одному продукту может соответствовать много категорий, в одной категории может быть много продуктов. Напишите SQL запрос для выбора всех пар «Имя продукта – Имя категории». Если у продукта нет категорий, то его имя все равно должно выводиться.
+
+-- create a table Products
+CREATE TABLE tblProducts (
+  idProduct INTEGER PRIMARY KEY,
+  name TEXT NOT NULL
+);
+-- insert some values in Products
+INSERT INTO tblProducts VALUES (1, 'Product1');
+INSERT INTO tblProducts VALUES (2, 'Product2');
+INSERT INTO tblProducts VALUES (3, 'Product3');
+-- create a table Categories
+CREATE TABLE tblCategories (
+  idCategorie INTEGER PRIMARY KEY,
+  name TEXT NOT NULL
+);
+-- insert some values in Categories
+INSERT INTO tblCategories VALUES (1, 'Categorie1');
+INSERT INTO tblCategories VALUES (2, 'Categorie2');
+INSERT INTO tblCategories VALUES (3, 'Categorie3');
+-- create link table
+CREATE TABLE tblLink (
+  idLink INTEGER PRIMARY KEY,
+  idProduct INTEGER,
+  idCategorie INTEGER 
+);
+-- insert some values in Link
+INSERT INTO tblLink VALUES (1, 1, 1);
+INSERT INTO tblLink VALUES (2, 1, 2);
+INSERT INTO tblLink VALUES (3, 2, 3);
+
+--Print result
+SELECT P."name", C."name"
+FROM tblProducts P
+LEFT JOIN tblLink L
+	ON P.idProduct = L.idProduct
+LEFT JOIN tblCategories C
+	ON L.idCategorie = C.idCategorie;
